@@ -1,0 +1,22 @@
+[
+  {
+    "title": "prisma",
+    "body": "learning advanced  prisma",
+    "createdAt": "6/15/2025, 12:36:56 PM"
+  },
+  {
+    "title": "javascript",
+    "body": "learning javascript",
+    "createdAt": "2023-10-02T12:30:00Z"
+  },
+  {
+    "title": "express",
+    "body": "learning express",
+    "createdAt": "6/15/2025, 1:28:34 AM"
+  },
+  {
+    "title": "Mongodb",
+    "body": "learning Mongodb",
+    "createdAt": "6/15/2025, 1:33:55 AM"
+  }
+]
