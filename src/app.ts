@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, NextFunction, Request, Response } from 'express'
 import path from 'path'
 import fs from 'fs'
 import userRoutes from './routes/userRoutes'
@@ -28,6 +28,19 @@ app.get('/todos/:title/:body', (req: Request, res: Response) => {
   console.log( "from params:", req.params);
   const data = fs.readFileSync(filePath, 'utf-8')
   res.send(data);
+})
+
+//sob route ar niche and global err handler upore declare kora hoy
+//404 route not found handler
+app.use((req: Request, res: Response) => {
+   res.status(404).json({message: 'Route not found'});
+})
+
+
+//global error handler
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke in app.ts file! ');
 })
 
 export default app;

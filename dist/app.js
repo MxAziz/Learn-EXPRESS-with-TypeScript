@@ -27,4 +27,14 @@ app.get('/todos/:title/:body', (req, res) => {
     const data = fs_1.default.readFileSync(filePath, 'utf-8');
     res.send(data);
 });
+//sob route ar niche and global err handler upore declare kora hoy
+//404 route not found handler
+app.use((req, res) => {
+    res.status(404).json({ message: 'Route not found' });
+});
+//global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke in app.ts file! ');
+});
 exports.default = app;
