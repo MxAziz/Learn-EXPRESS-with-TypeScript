@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
-router.get('/see', (req, res) => {
-    res.send('সব ইউজার');
+router.get('/', (req, res) => {
+    res.send('welcome to the Products API');
 });
-router.post('/add', (req, res) => {
-    res.send('নতুন ইউজার তৈরি হয়েছে');
+router.post('/create-product', (req, res) => {
+    res.send('create a new product');
 });
 router.use((req, res, next) => {
     res.status(404).json({

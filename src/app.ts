@@ -2,12 +2,14 @@ import express, { Application, NextFunction, Request, Response } from 'express'
 import path from 'path'
 import fs from 'fs'
 import userRoutes from './routes/userRoutes'
+import productRoutes from './app/routes/products';
 const app : Application = express()
 
 app.use(express.json())
 
 // const todosRouter = express.Router()
 app.use('/users', userRoutes);
+app.use('/products', productRoutes);
 
 const filePath = path.join(__dirname, "../db/todo.json")
 
@@ -15,6 +17,10 @@ app.get('/users/see', (req : Request, res: Response) => {
   res.send('welcome to the Todo API')
 
 })
+
+app.get('/products/delete', (req: Request, res: Response) => {
+  res.send('delete a product')
+});
 
 app.get('/todos', (req: Request, res: Response) => {
   const data = fs.readFileSync(filePath, 'utf-8')

@@ -7,13 +7,18 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const products_1 = __importDefault(require("./app/routes/products"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 // const todosRouter = express.Router()
 app.use('/users', userRoutes_1.default);
+app.use('/products', products_1.default);
 const filePath = path_1.default.join(__dirname, "../db/todo.json");
 app.get('/users/see', (req, res) => {
     res.send('welcome to the Todo API');
+});
+app.get('/products/delete', (req, res) => {
+    res.send('delete a product');
 });
 app.get('/todos', (req, res) => {
     const data = fs_1.default.readFileSync(filePath, 'utf-8');
